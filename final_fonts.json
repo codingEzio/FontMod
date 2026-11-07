@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "version": "1.1.0",
+  "fonts": [
+    {
+      "family": "GeistMixUI_NerdAndZhAndEmoji3D",
+      "source": "pixel",
+      "axes": {
+        "ELSH": 0
+      }
+    },
+    {
+      "family": "GeistMixCode_NerdAndZhAndEmoji3D",
+      "source": "mono",
+      "variableWeight": [
+        100,
+        400,
+        900
+      ]
+    },
+    {
+      "family": "Doto500MixUI_NerdAndZhAndEmoji3D",
+      "source": "doto",
+      "axes": {
+        "wght": 500,
+        "ROND": 0
+      },
+      "height": 1.1,
+      "heightAxis": {
+        "tag": "HGHT",
+        "values": [
+          105,
+          110,
+          115,
+          120
+        ],
+        "default": 110
+      }
+    },
+    {
+      "family": "Doto700MixUI_NerdAndZhAndEmoji3D",
+      "source": "doto",
+      "axes": {
+        "wght": 700,
+        "ROND": 0
+      },
+      "height": 1.1,
+      "heightAxis": {
+        "tag": "HGHT",
+        "values": [
+          105,
+          110,
+          115,
+          120
+        ],
+        "default": 110
+      }
+    },
+    {
+      "family": "Doto900MixUI_NerdAndZhAndEmoji3D",
+      "source": "doto",
+      "axes": {
+        "wght": 900,
+        "ROND": 0
+      },
+      "height": 1.1,
+      "heightAxis": {
+        "tag": "HGHT",
+        "values": [
+          105,
+          110,
+          115,
+          120
+        ],
+        "default": 110
+      }
+    }
+  ],
+  "emoji": {
+    "sourcePpem": 55,
+    "targetPpem": 28,
+    "coverage": "all source cmap and GSUB; no repertoire subsetting",
+    "maxFontBytes": 16000000,
+    "pngPolicy": "Lanczos RGBA at28PPEM, per-image256-color alpha palette; all source glyphs retained"
+  },
+  "pixelSourceSha256": "dcde0e2ae59aad779e71ee3fa45ade3a7146c2498024fdbb79c8cb619e60a238",
+  "chinese": "original Cubic 11 geometry at normalized UPEM; no synthetic weight",
+  "doto": "original horizontal metrics; y scale only, baseline unchanged",
+  "layoutPolicy": "Full emoji ccmp lookups apply to every script/language ccmp record for Core Text and HarfBuzz",
+  "symbolAliases": {
+    "EA00": "F099"
+  }
+}

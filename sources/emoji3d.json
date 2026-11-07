@@ -1,0 +1,23 @@
+{
+  "path": "sources/Noto3D-64.ttf",
+  "sha256": "81fd6b01bde93e4d7afa0aab4fbcfd915b2e9e1b0e55188c6e8e1a2571b14ab3",
+  "label": "Noto 3D Emoji, original 64 px strike",
+  "repository": "https://github.com/googlefonts/noto-emoji",
+  "revision": "v2026-09-24-unicode18_0",
+  "url": "https://media.githubusercontent.com/media/googlefonts/noto-emoji/v2026-09-24-unicode18_0/3D/fonts/Noto-3D-128.ttf",
+  "upstreamSha256": "6f4312a7c02d0c9de88095ee65e320ffe9316d2d8d56e4c515e7181fca5ed439",
+  "upstreamBytes": 147882884,
+  "preparation": "Retain original strike 55 PPEM / 64 px only. No image resampling, glyph/cmap/GSUB subsetting or name edits.",
+  "copyright": "Copyright 2022 Google Inc.",
+  "license": {
+    "spdx": "OFL-1.1",
+    "path": "sources/Noto3D-OFL.txt",
+    "sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2",
+    "url": "https://raw.githubusercontent.com/googlefonts/noto-emoji/v2026-09-24-unicode18_0/3D/fonts/LICENSE",
+    "reservedNames": [],
+    "reviewedAt": "2026-10-15",
+    "redistribution": true,
+    "embedding": true,
+    "modifiedFonts": true
+  }
+}

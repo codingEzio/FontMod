@@ -1,0 +1,3 @@
+# Local tool-only candidate
+
+This is not the older ten-package delivery. No source fonts or specimen images are included. Supply inputs with the exact hashes and applicable rights as described in [TOOL-INPUTS.md](TOOL-INPUTS.md), then run `./fontmod setup` and `./fontmod build --departure-build /path/to/build`. `source-check` verifies the tool selection and any supplied inputs; it does not establish input availability when they are absent. Built fonts retain all component terms. `release-check --publication` remains blocked by unresolved Font Logos and Material Design rights. This tool release does not authorize publication of generated fonts.

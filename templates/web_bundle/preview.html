@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-Hans">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>字体样本册</title>
+<style>
+:root{color-scheme:light dark;--bg:#f5f5f2;--paper:#fcfcfa;--fg:#191919;--muted:#64645e;--line:#d4d4cc;--ok:#32764a;--warn:#8c6327}
+*{box-sizing:border-box}html{scroll-behavior:auto}body{background:var(--bg);color:var(--fg);margin:0;font:13px/1.5 system-ui,sans-serif}header,main,footer{width:min(1840px,100%);margin:auto;padding:18px}header{padding-bottom:6px}h1{font-size:24px;line-height:1.2;margin:0 0 8px;font-weight:600;letter-spacing:-.025em}header p{max-width:90ch;margin:5px 0;color:var(--muted)}#summary{font-variant-numeric:tabular-nums}main{padding-top:6px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}.family{border-top:1px solid var(--line);padding:14px 0 18px;min-width:0}.family-head{display:flex;align-items:baseline;justify-content:space-between;gap:6px;flex-wrap:wrap;margin-bottom:7px}.family h2{font-size:16px;line-height:1.4;margin:0;overflow-wrap:anywhere;font-weight:600}.metadata{color:var(--muted);font-size:11px;margin:3px 0;overflow-wrap:anywhere}.load-status{font-size:11px;color:var(--muted);white-space:normal}.load-status[data-state=loaded]{color:var(--ok)}.load-status[data-state=failed]{color:var(--warn)}.coverage{color:var(--muted);font-size:11px;margin:0 0 9px;overflow-wrap:anywhere}.variants{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.family[data-single=true] .variants{grid-template-columns:1fr}.variant{background:var(--paper);border:1px solid var(--line);padding:12px;min-width:0}.variant-label{font:500 11px/1.5 system-ui,sans-serif;margin:0 0 8px;color:var(--muted);font-variant-numeric:tabular-nums}.specimen{font-size:16px;line-height:1.75;font-weight:400;font-style:normal;font-stretch:normal;font-synthesis:none;letter-spacing:normal;overflow-wrap:anywhere;min-width:0}.specimen h3{font-family:inherit;font-weight:inherit;font-size:24px;line-height:1.65;margin:0 0 7px;letter-spacing:inherit}.specimen p{margin:0 0 8px}.specimen ul{margin:0 0 8px;padding-left:1.2em}.specimen li{padding-left:.12em;margin:1px 0}.specimen .details{font-size:13px;line-height:1.8;margin:0}.supplement{border-top:1px dashed var(--line);margin-top:8px;padding-top:6px}.supplement-label{font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 2px}.specimen .supplement-text{margin:0;font-size:19px;line-height:1.8;overflow-wrap:anywhere}footer{font-size:11px;color:var(--muted);padding-top:0}.error{border:1px solid var(--line);padding:18px;overflow-wrap:anywhere}.error strong{color:var(--warn)}.reopen{font-size:12px}.reopen code{user-select:all;overflow-wrap:anywhere}.restricted{color:var(--warn);font-size:11px;margin:4px 0 8px}
+@media(prefers-color-scheme:dark){:root{--bg:#191919;--paper:#202020;--fg:#edede8;--muted:#aaa9a0;--line:#45453f;--ok:#8bc59b;--warn:#d4b477}}
+@media(min-width:1101px) and (max-width:1450px){.variants{grid-template-columns:1fr}}
+@media(max-width:1100px){main{grid-template-columns:1fr}}
+@media(max-width:650px){header,main,footer{padding:12px}.variants{grid-template-columns:1fr}.variant{padding:11px}.family{padding-bottom:12px}.family h2{font-size:15px}}
+
+.group-heading{grid-column:1/-1;margin:12px 0 0;padding:8px 0;border-bottom:2px solid var(--line);font:600 18px/1.4 system-ui,sans-serif}.family[data-emoji-only=true]{grid-column:1/-1}.emoji-sheet{font-size:38px;line-height:1.8;letter-spacing:.12em;white-space:pre-wrap;margin:0}.emoji-note{font:12px/1.6 system-ui,sans-serif;color:var(--muted)}
+</style>
+<header>
+  <h1 id="title">字体样本册</h1>
+  <p id="description">每个字体与样式都直接展开。用标题、段落、列表和数字混排比较实际阅读感，向下滚动即可。</p>
+  <p id="summary" role="status">正在读取本地字体目录…</p>
+</header>
+<main id="catalog" aria-label="全部字体与样式"></main>
+<footer id="footnote">样本从随附字体文件加载，不使用本机同名字体。缺失字符可能由系统后备字体显示；覆盖标签来自目录记录，页面可见字符本身不代表该字体已内嵌。</footer>
+<script>
+"use strict";
+const translations={
+  'zh-Hans':{
+    groupGeist:'常用 · Geist Pixel / Mono',groupMixed:'常用 · GeistMixed',groupEmoji:'Noto 3D Emoji · 独立展示',groupOther:'其他保留字体',emojiNotice:'现有 UI 选集：120 个原始 PNG，非完整 Emoji 覆盖；未收录的字符仍可能使用系统后备。',
+    reopen:'随时重开',restricted:'本机实验字体 · 再分发需沿用来源项目的许可审核',
+    title:'字体样本册',fullTitle:'定制字体样本册',webTitle:'Doto Tall · 四家族全部高度',
+    description:'每个字体与样式都直接展开。用标题、段落、列表和数字混排比较实际阅读感，向下滚动即可。',
+    catalogAria:'全部字体与样式',reading:'正在读取本地字体目录…',
+    footnote:'样本从随附字体文件加载，不使用本机同名字体。缺失字符可能由系统后备字体显示；覆盖标签来自目录记录，页面可见字符本身不代表该字体已内嵌。',
+    embedded:'内嵌',partial:'部分内嵌',fallback:'系统后备',unknown:'未确认',
+    height:'{value}% 高度',appWeight:'应用字重 {value}',sourceWeight:'源字重 {value}',width:'文字宽度 {value}%',
+    loading:'字体文件加载中…',loaded:'随附字体已加载',fontFailed:'加载失败 · 当前显示系统后备',
+    coverageUnknown:'文字覆盖：未确认；可见字符可能来自系统后备。',nerd:'Nerd 图标',hangul:'韩文',
+    count:'{fonts} 款字体 · {styles} 个样式 · 全部展开',missing:' · {count} 个字体文件未加载',allLoaded:' · 全部随附字体已加载',
+    httpError:'目录读取失败：HTTP {status}',invalidCatalog:'字体目录为空或版本不受支持。',localOnly:'只允许随附的本地字体资源。',
+    incomplete:'预览未能完成',catalogError:'无法读取或显示字体目录。',help:'请通过 fontmod 的本机预览服务打开本页，并确认旁边有 preview_catalog.json。',
+    coverageLabels:{'英文示例':'英文示例','中文示例':'中文示例','韩文示例':'韩文示例','Nerd 图标示例（5 码位）':'Nerd 图标示例（5 码位）','Emoji 示例码位（序列另验）':'Emoji 示例码位（序列另验）'},
+    labels:{'彩色字体；序列另验':'彩色字体；序列另验','样例码位；系统可能补字':'样例码位；系统可能补字','系统可能补字；序列另验':'系统可能补字；序列另验','DeparturePixelZh · 已有 Nerd 图标组合':'DeparturePixelZh · 已有 Nerd 图标组合','Geist Pixel · 当前来源文件':'Geist Pixel · 当前来源文件','Roboto Combo · 已有字体资产':'Roboto Combo · 已有字体资产','候选来源，未用于替换现有 Cubic 中文':'候选来源，未用于替换现有 Cubic 中文','原始 Doto · 字重命名样式':'原始 Doto · 字重命名样式','Doto 原版可变字体':'Doto 原版可变字体','Fusion Pixel · 可选补字源对比':'Fusion Pixel · 可选补字源对比'}
+  },
+  'zh-Hant':{
+    groupGeist:'常用 · Geist Pixel / Mono',groupMixed:'常用 · GeistMixed',groupEmoji:'Noto 3D Emoji · 獨立展示',groupOther:'其他保留字體',emojiNotice:'既有 UI 選集：120 個原始 PNG，非完整 Emoji 覆蓋；未收錄字元仍可能使用系統後備。',
+    reopen:'隨時重開',restricted:'本機實驗字體 · 再散布須沿用來源專案的授權審核',
+    title:'字體樣本冊',fullTitle:'自訂字體樣本冊',webTitle:'Doto Tall · 四家族全部高度',
+    description:'每個字體與樣式都直接展開。用標題、段落、清單和數字混排比較實際閱讀感，向下捲動即可。',
+    catalogAria:'全部字體與樣式',reading:'正在讀取本機字體目錄…',
+    footnote:'樣本從隨附字體檔案載入，不使用本機同名字體。缺少的字元可能由系統後備字體顯示；涵蓋標籤來自目錄記錄，頁面可見字元本身不代表該字體已內嵌。',
+    embedded:'內嵌',partial:'部分內嵌',fallback:'系統後備',unknown:'未確認',
+    height:'{value}% 高度',appWeight:'應用字重 {value}',sourceWeight:'來源字重 {value}',width:'文字寬度 {value}%',
+    loading:'字體檔案載入中…',loaded:'隨附字體已載入',fontFailed:'載入失敗 · 目前顯示系統後備',
+    coverageUnknown:'文字涵蓋：未確認；可見字元可能來自系統後備。',nerd:'Nerd 圖示',hangul:'韓文',
+    count:'{fonts} 款字體 · {styles} 個樣式 · 全部展開',missing:' · {count} 個字體檔案未載入',allLoaded:' · 全部隨附字體已載入',
+    httpError:'目錄讀取失敗：HTTP {status}',invalidCatalog:'字體目錄為空或版本不受支援。',localOnly:'只允許隨附的本機字體資源。',
+    incomplete:'預覽未能完成',catalogError:'無法讀取或顯示字體目錄。',help:'請透過 fontmod 的本機預覽服務開啟本頁，並確認旁邊有 preview_catalog.json。',
+    coverageLabels:{'英文示例':'英文範例','中文示例':'中文範例','韩文示例':'韓文範例','Nerd 图标示例（5 码位）':'Nerd 圖示範例（5 碼位）','Emoji 示例码位（序列另验）':'Emoji 範例碼位（序列另驗）'},
+    labels:{'彩色字体；序列另验':'彩色字體；序列另驗','样例码位；系统可能补字':'範例碼位；系統可能補字','系统可能补字；序列另验':'系統可能補字；序列另驗','DeparturePixelZh · 已有 Nerd 图标组合':'DeparturePixelZh · 既有 Nerd 圖示組合','Geist Pixel · 当前来源文件':'Geist Pixel · 目前來源檔案','Roboto Combo · 已有字体资产':'Roboto Combo · 既有字體資產','候选来源，未用于替换现有 Cubic 中文':'候選來源，未用於取代既有 Cubic 中文','原始 Doto · 字重命名样式':'原始 Doto · 字重命名樣式','Doto 原版可变字体':'Doto 原版可變字體','Fusion Pixel · 可选补字源对比':'Fusion Pixel · 可選補字來源比較'}
+  },
+  en:{
+    groupGeist:'Favorites · Geist Pixel / Mono',groupMixed:'Favorites · GeistMixed',groupEmoji:'Noto 3D Emoji · Separate specimen',groupOther:'Other retained fonts',emojiNotice:'Existing UI subset: 120 original PNGs, not full emoji coverage. Missing characters may still use system fallback.',
+    reopen:'Reopen anytime',restricted:'Local experimental font · Redistribution requires the source project’s permission review',
+    title:'Font specimen book',fullTitle:'Custom font specimen book',webTitle:'Doto Tall · All heights of four families',
+    description:'Every font and style is expanded. Compare headings, paragraphs, lists, and numbers at a glance; scroll to see the rest.',
+    catalogAria:'All fonts and styles',reading:'Reading the local font catalog…',
+    footnote:'Samples load the supplied font files without using installed namesakes. Missing characters may use system fallback. Coverage labels come from the catalog; a visible character alone does not prove that it is embedded.',
+    embedded:'Embedded',partial:'Partly embedded',fallback:'System fallback',unknown:'Unconfirmed',
+    height:'{value}% height',appWeight:'Application weight {value}',sourceWeight:'Source weight {value}',width:'Text width {value}%',
+    loading:'Loading font file…',loaded:'Supplied font loaded',fontFailed:'Load failed · Showing system fallback',
+    coverageUnknown:'Text coverage is unconfirmed; visible characters may use system fallback.',nerd:'Nerd icons',hangul:'Korean',
+    count:'{fonts} {fontUnit} · {styles} {styleUnit} · All expanded',missing:' · {count} {fontUnit} not loaded',allLoaded:' · All supplied fonts loaded',
+    httpError:'Catalog request failed: HTTP {status}',invalidCatalog:'The font catalog is empty or its version is unsupported.',localOnly:'Only supplied local font resources are allowed.',
+    incomplete:'Preview could not be completed',catalogError:'The font catalog could not be read or displayed.',help:'Open this page through the local fontmod preview server and make sure preview_catalog.json is beside it.',
+    coverageLabels:{'英文示例':'English sample','中文示例':'Chinese sample','韩文示例':'Korean sample','Nerd 图标示例（5 码位）':'Nerd icon sample (5 codepoints)','Emoji 示例码位（序列另验）':'Emoji sample codepoints (sequences checked separately)'},
+    labels:{'彩色字体；序列另验':'Color font; sequences checked separately','样例码位；系统可能补字':'Sample codepoints; system fallback may supply missing characters','系统可能补字；序列另验':'System fallback may supply missing characters; sequences checked separately','DeparturePixelZh · 已有 Nerd 图标组合':'DeparturePixelZh · Existing Nerd icon combo','Geist Pixel · 当前来源文件':'Geist Pixel · Current source file','Roboto Combo · 已有字体资产':'Roboto Combo · Existing font assets','候选来源，未用于替换现有 Cubic 中文':'Candidate source; does not replace existing Cubic Chinese','原始 Doto · 字重命名样式':'Original Doto · Named weight styles','Doto 原版可变字体':'Original Doto variable font','Fusion Pixel · 可选补字源对比':'Fusion Pixel · Optional coverage source comparison'}
+  }
+};
+function selectLocale(override,browserLanguage){
+  if(['zh-Hans','zh-Hant','en'].includes(override))return override;
+  const language=String(browserLanguage||'en').toLowerCase();
+  if(/^zh(?:-|$)/.test(language))return /(?:^|-)(?:hant|tw|hk|mo)(?:-|$)/.test(language)?'zh-Hant':'zh-Hans';
+  return 'en';
+}
+const locale=selectLocale(new URLSearchParams(location.search).get('lang'),navigator.language);
+const strings=translations[locale];
+function t(key,values={}){return strings[key].replace(/\{(\w+)\}/g,(_,name)=>String(values[name]??''));}
+function translatedLabel(value){return strings.labels[value]||strings.coverageLabels[value]||value;}
+function localizedError(key,values){const error=new Error(t(key,values));error.localized=true;return error;}
+const statusLabels=Object.fromEntries(['embedded','partial','fallback','unknown'].map(key=>[key,t(key)]));
+document.documentElement.lang=locale;
+document.title=t('title');document.querySelector('#title').textContent=document.title;
+document.querySelector('#description').textContent=t('description');
+document.querySelector('#catalog').setAttribute('aria-label',t('catalogAria'));
+document.querySelector('#footnote').textContent=t('footnote');
+document.querySelector('#summary').textContent=t('reading');
+const catalogElement=document.querySelector('#catalog');
+const summary=document.querySelector('#summary');
+function element(tag,className,text){const node=document.createElement(tag);if(className)node.className=className;if(text!==undefined)node.textContent=text;return node;}
+function coordinatesLabel(coordinates){return Object.entries(coordinates).map(([axis,value])=>axis==='HGHT'?t('height',{value}):`${axis} ${value}`).join(' · ');}
+function variationSettings(coordinates){return Object.entries(coordinates).map(([axis,value])=>`"${axis}" ${value}`).join(', ')||'normal';}
+function addSupplement(specimen,label,text){const area=element('div','supplement');area.append(element('div','supplement-label',label),element('p','supplement-text',text));specimen.append(area);}
+function specimenCard(family,style,alias,index){
+  const card=element('article','variant');card.dataset.family=family.family;card.dataset.style=style.name;
+  const coordinates=style.coordinates||{};const heightLabel=coordinatesLabel(coordinates);
+  card.append(element('h3','variant-label',style.label||[style.name,heightLabel].filter(Boolean).join(' · ')));
+  const sample=element('div','specimen');sample.id=`specimen-${index}`;sample.style.fontFamily=`"${alias}", system-ui, sans-serif`;sample.style.fontWeight=String(family.metadataWeight||400);sample.style.fontVariationSettings=variationSettings(coordinates);
+  const title=element('h3','title-probe','把日常，排成自己的样子');
+  const paragraph=element('p','text-probe','清晨的光落在桌边，新的想法从一行字开始。把计划写清楚，也给灵感留一点空间。');
+  const english=element('p','latin-probe','A small detail changes the rhythm of a page. Keep the useful things close, and let the words breathe.');
+  const list=element('ul','list-probe');for(const text of ['阅读长段落，观察文字密度与行间节奏。','Compare headings, notes, and everyday lists.','中文简体 · 繁體中文 · ā á à · ㄅ ㄆ ㄇ'])list.append(element('li','',text));
+  const details=element('p','details number-probe','2026.10.15 · 08:45 · 0123456789\n¥ 1,280.50 / $ 48.00 · 85%\n~/X/Project/font-preview_v2 · Aa Bb Gg Qq');details.style.whiteSpace='pre-line';
+  if(family.emojiOnly){
+    card.append(element('p','emoji-note',t('emojiNotice')));
+    const sheet=element('p','emoji-sheet',family.emojiSample);sheet.style.fontFamily=`"${alias}", "Apple Color Emoji", sans-serif`;sheet.style.fontSynthesis='none';sheet.id=sample.id;card.append(sheet);return card;
+  }
+  sample.append(title,paragraph,english,list,details);
+  if(family.emoji){const flag=family.emoji.status||'unknown';addSupplement(sample,`Emoji · ${statusLabels[flag]||statusLabels.unknown}${family.emoji.label?' · '+translatedLabel(family.emoji.label):''}`,'😀 ❤️ 👍🏽 👩‍💻 🇹🇼 1️⃣');}
+  if(family.icons){const flag=family.icons.status||'unknown';addSupplement(sample,`${t('nerd')} · ${statusLabels[flag]||statusLabels.unknown}`,'\uE0B0 \uE0A0 \uF07B \uF120 \uF013');}
+  if(family.hangul){const flag=family.hangul.status||'unknown';addSupplement(sample,`${t('hangul')} · ${statusLabels[flag]||statusLabels.unknown}`,'가나다라마바사 · 안녕하세요');}
+  card.append(sample);return card;
+}
+async function render(){
+  const response=await fetch('preview_catalog.json',{cache:'no-store'});if(!response.ok)throw localizedError('httpError',{status:response.status});const catalog=await response.json();
+  if(catalog.schemaVersion!==1||!Array.isArray(catalog.families)||!catalog.families.length)throw localizedError('invalidCatalog');
+  const webFamilies=['DotoMod700ZhRefinedTall','DotoMod700ZhRefinedTallCondensed','DotoMod700ZhRefinedTallEmojiMax','DotoMod700ZhRefinedTallCondensedEmojiMax'];
+  const webKit=catalog.families.length===4&&catalog.families.every(family=>webFamilies.includes(family.family));
+  document.title=t(webKit?'webTitle':'fullTitle');document.querySelector('#title').textContent=document.title;
+  if(catalog.reopenCommand){const hint=element('p','reopen',t('reopen')+' · ');hint.append(element('code','',catalog.reopenCommand));document.querySelector('header').append(hint);}
+  let count=0;const loads=[];let previousGroup=null;
+  const grouped=catalog.families.some(family=>family.previewGroup);
+  for(const [familyIndex,family]of catalog.families.entries()){
+    const group=family.previewGroup||'other';if(grouped&&group!==previousGroup){catalogElement.append(element('h2','group-heading',t({geist:'groupGeist',mixed:'groupMixed',emoji:'groupEmoji',other:'groupOther'}[group])));previousGroup=group;}
+    const section=element('section','family');section.dataset.emojiOnly=String(Boolean(family.emojiOnly));section.dataset.family=family.family;section.dataset.single=String(family.styles.length===1);const head=element('div','family-head');const identity=element('div');identity.append(element('h2','',translatedLabel(family.label||family.family)));
+    const metadata=[family.family,t('appWeight',{value:family.metadataWeight||400})];if(family.sourceWeight!==null&&family.sourceWeight!==undefined)metadata.push(t('sourceWeight',{value:family.sourceWeight}));if(family.horizontalScale!==undefined)metadata.push(t('width',{value:Math.round(family.horizontalScale*100)}));if(family.sourceLabel)metadata.push(translatedLabel(family.sourceLabel));identity.append(element('p','metadata',metadata.join(' · ')));
+    const loadStatus=element('span','load-status',t('loading'));loadStatus.dataset.state='loading';head.append(identity,loadStatus);section.append(head);
+    const coverage=(family.coverage||[]).map(item=>`${translatedLabel(item.label)}${locale==='en'?': ':'：'}${statusLabels[item.status]||statusLabels.unknown}`).join(' · ');section.append(element('p','coverage',coverage||t('coverageUnknown')));
+    if(family.distribution==='restricted')section.append(element('p','restricted',t('restricted')));
+    const variants=element('div','variants');const alias=`FontPreview${familyIndex}`;
+    for(const style of family.styles||[{name:'Regular',coordinates:{}}])variants.append(specimenCard(family,style,alias,count++));section.append(variants);catalogElement.append(section);
+    loads.push(async()=>{try{for(const file of family.fontFiles||[{fontUrl:family.fontUrl}]){const fontUrl=new URL(file.fontUrl,location.href);if(fontUrl.origin!==location.origin)throw localizedError('localOnly');const descriptors={style:'normal',weight:String(family.metadataWeight||400),stretch:'normal',display:'swap'};if(file.unicodeRange)descriptors.unicodeRange=file.unicodeRange;document.fonts.add(new FontFace(alias,`url(${JSON.stringify(fontUrl.href)})`,descriptors));}await document.fonts.load(`${family.metadataWeight||400} 16px ${alias}`,variants.textContent).then(()=>{loadStatus.textContent=t('loaded');loadStatus.dataset.state='loaded';},error=>{loadStatus.textContent=t('fontFailed');loadStatus.dataset.state='failed';loadStatus.title=String(error);return false;});}catch(error){loadStatus.textContent=t('fontFailed');loadStatus.dataset.state='failed';loadStatus.title=String(error);return false;}});
+  }
+  summary.textContent=t('count',{fonts:catalog.families.length,styles:count,fontUnit:catalog.families.length===1?'font':'fonts',styleUnit:count===1?'style':'styles'});
+  // Three font families at a time avoid simultaneous decoding of every large CJK file.
+  await Promise.all(Array.from({length:Math.min(3,loads.length)},async()=>{while(loads.length)await loads.shift()();}));await document.fonts.ready;const failed=document.querySelectorAll('[data-state="failed"]').length;summary.textContent+=failed?t('missing',{count:failed,fontUnit:failed===1?'font file':'font files'}):t('allLoaded');document.documentElement.dataset.previewReady=failed?'partial':'true';
+}
+render().catch(error=>{summary.textContent=t('incomplete');catalogElement.replaceChildren();const message=element('p','error');message.append(element('strong','',error.localized?error.message:t('catalogError')),element('br'),document.createTextNode(t('help')));catalogElement.append(message);document.documentElement.dataset.previewReady='error';});
+</script>
+</html>

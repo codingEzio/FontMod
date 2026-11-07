@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "id": "departure_pixel_zh",
+  "version": "0.1.1",
+  "font_revision": 0.101,
+  "version_label": "0.101",
+  "vendor": "DeparturePixelZh",
+  "timestamp": 3874089600,
+  "copyright": "Copyright 2026 DeparturePixelZh contributors. Derived from Departure Mono (Helena Zhang), Cubic 11 (ACh-K and contributors), and Nerd Fonts icon authors. See NOTICE.md and Licenses.",
+  "license_description": "SIL Open Font License 1.1 for the merged font. Original icon license grants remain in effect; see NOTICE.md and Licenses/.",
+  "license_url": "https://openfontlicense.org/",
+  "emoji_policy": "system",
+  "private_use_source": "nerd",
+  "supplement_latin_marks": true,
+  "metrics": {
+    "units_per_em": 1100,
+    "cell": 700,
+    "ascent": 1300,
+    "descent": -400,
+    "line_gap": 0,
+    "x_height": 600,
+    "cap_height": 800,
+    "underline_position": -150,
+    "underline_thickness": 50,
+    "horizontal_padding": 100,
+    "cjk_scale": 0.95,
+    "icon_height": 1000,
+    "icon_center": 400,
+    "mark_gap": 100,
+    "outline_error": 0.5
+  },
+  "sources": [
+    {
+      "id": "departure",
+      "location": "https://github.com/rektdeckard/departure-mono/releases/download/v1.500/DepartureMono-1.500.zip",
+      "sha256": "bf3e48059aeef4617ec585bdea81dcc3491c576b3e7a472f52faf40e09ee5c3a",
+      "member": "DepartureMono-1.500/DepartureMono-Regular.otf",
+      "mode": "preserve",
+      "design_units_per_em": null,
+      "fullwidth_threshold": null,
+      "box_tile": {"left": 0, "bottom": -300, "width": 700, "height": 1400},
+      "reserved_names": []
+    },
+    {
+      "id": "cubic",
+      "location": "https://raw.githubusercontent.com/ACh-K/Cubic-11/4c566f7d6cc5c05ee360fe9cff56b5da1fcafd4d/fonts/ttf/Cubic_11.ttf",
+      "sha256": "0193f5f033612496df6b45ee92ac3b335bc6a5a24ff95da55ca87b33e57dcf62",
+      "member": null,
+      "mode": "mono_fit",
+      "design_units_per_em": 1100,
+      "fullwidth_threshold": 1200,
+      "box_tile": {"left": 100, "bottom": -300, "width": 1200, "height": 1300},
+      "reserved_names": ["Cubic", "俐方體"]
+    },
+    {
+      "id": "nerd",
+      "location": "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/NerdFontsSymbolsOnly.zip",
+      "sha256": "fdca3682534f6f65e1ccb2345b0362ccf67d9b8eca7c8025330946e93e2473bc",
+      "member": "SymbolsNerdFontMono-Regular.ttf",
+      "mode": "icons",
+      "design_units_per_em": null,
+      "fullwidth_threshold": null,
+      "box_tile": null,
+      "reserved_names": ["Pomicons", "Font Awesome"]
+    }
+  ],
+  "families": [
+    {"name": "DeparturePixelZh", "order": ["departure", "cubic", "nerd"], "metrics": {}},
+    {
+      "name": "DeparturePixelZh Compact",
+      "postscript_name": "DeparturePixelZhCompact",
+      "order": ["departure", "cubic", "nerd"],
+      "metrics": {"cell": 650, "horizontal_padding": 50}
+    }
+  ],
+  "validation": {
+    "single_cell": "Hello 0123456789 MWil gjpqy ┌───┐│└───┘",
+    "double_cell": "中文測試，。Ａあ",
+    "combining": ["é", "Å", "ạ", "q́", "x́", "x̌", "ố", "Ä́"],
+    "icons": ["", "", "", "󰈙"]
+  },
+  "documents": ["MAINTENANCE.md", "README.md", "README.zh-Hans.md", "README.ja.md", "README.ko.md", "README.es.md", "INSTALL.md", "CHANGELOG.md", "NOTICE.md", "OFL.txt", "assets/departurepixelzh-social-card.png", "web/departurepixelzh.css", "specimens/index.html", "specimens/outline-and-advance.svg"],
+  "license_directory": "licenses",
+  "builder": {"repository": "font-builder", "revision": "source-snapshot-v1"}
+}

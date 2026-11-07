@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-30",
+  "status": "review-incomplete-nerd-icon-rights",
+  "scope": "Exact local source, seven derived families, minimum dependency closure and complete notices; no universal use or trademark clearance.",
+  "fontSoftwareLicense": "OFL-1.1 with retained original icon/component grants",
+  "toolingLicense": "MIT; original FontMod tooling only",
+  "familyStatus": {
+    "GeistMixUI_NerdAndZhAndEmoji3D": "renamed-no-RFN-conflict-observed",
+    "GeistMixCode_NerdAndZhAndEmoji3D": "renamed-no-RFN-conflict-observed",
+    "Doto500MixUI_NerdAndZhAndEmoji3D": "renamed-no-RFN-conflict-observed",
+    "Doto700MixUI_NerdAndZhAndEmoji3D": "renamed-no-RFN-conflict-observed",
+    "Doto900MixUI_NerdAndZhAndEmoji3D": "renamed-no-RFN-conflict-observed",
+    "DeparturePixelZh": "no-naming-conflict-observed",
+    "DeparturePixelZh Compact": "no-naming-conflict-observed"
+  },
+  "blockingDecisions": [
+    {
+      "id": "font-logos-rights-discrepancy",
+      "reason": "Font Logos 1.3.0 retains Unlicense while Nerd Fonts 3.5.1 describes it as unlicensed. The discrepancy and individual glyph and trademark rights remain unresolved. Preserve both records and review before external distribution."
+    },
+    {
+      "id": "material-design-brand-logos-rights-classification",
+      "reason": "The retained Nerd Fonts 3.5.1 Material Design input is dated 2022-10-06 and records one manual glyph fix. The reviewed Pictogrammers terms exclude the Brand / Logos category from the general Apache grant, but this candidate has no version-matched map of which 2022 glyphs fall in that category or evidence of rights to them. Keep full Nerd coverage and block external distribution until classification and rights are recorded."
+    }
+  ],
+  "checkedConditions": [
+    "Original font and license input SHA-256 pins retained.",
+    "OFL primary-name/RFN checks use internal name tables, not filenames only.",
+    "Complete MIT/CC-BY-4.0/Apache-2.0/OFL/Unlicense/Bitstream notices retained; component rights are not replaced by MIT.",
+    "Explicit icon attribution and modification history accompany each family kit.",
+    "Minimum source closure excludes unrelated artwork instead of assuming a new grant.",
+    "Privacy-adapted recipe and original hash are recorded; derived recipe changes only distribution documents from the adapted recipe."
+  ],
+  "corrections": [
+    {
+      "id": "departure-cubic-version",
+      "originalNoticeLabel": "1.500",
+      "actualEmbeddedVersion": "1.451",
+      "sourceSha256": "0193f5f033612496df6b45ee92ac3b335bc6a5a24ff95da55ca87b33e57dcf62",
+      "action": "Original pinned NOTICE preserved; THIRD-PARTY-NOTICES.md records correction."
+    }
+  ],
+  "sourceOnlyRebuild": "Explicit development mode and complete font-hash attestation; not original producer check --release.",
+  "unverified": [
+    "Font Logos license-description discrepancy and individual glyph rights remain unresolved.",
+    "Nerd Fonts 3.5.1 Material Design glyphs have not been classified against the Pictogrammers Brand / Logos exclusion; rights to any matching glyphs are unverified.",
+    "Application-specific trademark/brand endorsement rights are not granted by font/icon licenses.",
+    "Public release and external distribution have not been authorized."
+  ],
+  "reservedPrimaryNames": [
+    "Cubic",
+    "俐方體",
+    "Pomicons",
+    "Font Awesome",
+    "Bitstream",
+    "Vera"
+  ],
+  "publicNaming": {
+    "policy": "Five mixed primary names use Zh without the reserved Cubic string. No RFN-containing public aliases are provided.",
+    "sourceAttribution": "Original names/authors remain in notices and source provenance.",
+    "geometry": "Glyphs, axes, metrics and source inputs remain unchanged."
+  },
+  "verification": "Local review: ./fontmod release-check --output DIR. To check recorded rights blockers: ./fontmod release-check --output DIR --publication. Passing does not grant publication authorization or establish legal clearance."
+}

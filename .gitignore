@@ -1,0 +1,20 @@
+.venv/
+.cache/
+__pycache__/
+.DS_Store
+Outputs/.releases/*/delete_after_use_*/
+Outputs/delete_after_use_pointer_*
+Benchmarks/delete_after_use_*.json
+
+# Selected consumer exports are reproducible from verified producer assets.
+Deliveries/CustomBundles/
+
+# Reproducible final fonts and private runtime verification.
+Final/
+Evidence/final-*
+Evidence/emoji-palette-trial-*
+Evidence/previews/*20261017*
+
+# Private operation records and local source candidates.
+Local/
+Evidence/

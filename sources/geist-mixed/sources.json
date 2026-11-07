@@ -1,0 +1,32 @@
+[
+  {
+    "file": "GeistMono-Variable.ttf",
+    "url": "https://raw.githubusercontent.com/vercel/geist-font/a73329da8fc62afc917f796555202e4997f79b7c/fonts/GeistMono/variable/GeistMono%5Bwght%5D.ttf",
+    "sha256": "87c2aff9723544a9adaea19d92e42a33705c9723624801b6e0224c2206a6af0d",
+    "bytes": 171968
+  },
+  {
+    "file": "Geist-OFL.txt",
+    "url": "https://raw.githubusercontent.com/vercel/geist-font/a73329da8fc62afc917f796555202e4997f79b7c/OFL.txt",
+    "sha256": "c683bfbcc7e087f5d37a54ef628f10387c451a83ddc459b151403a164ac46c90",
+    "bytes": 4383
+  },
+  {
+    "file": "SymbolsNerdFontMono-Regular.ttf",
+    "url": "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/v3.5.1/patched-fonts/NerdFontsSymbolsOnly/SymbolsNerdFontMono-Regular.ttf",
+    "sha256": "fe471e538392f51910faab985fa8e192a39dd3426125edd15b71b3680df0e749",
+    "bytes": 2610012
+  },
+  {
+    "file": "GeistPixel-Variable.ttf",
+    "url": "https://raw.githubusercontent.com/google/fonts/c180a5f9711fb8ec0070fab5ad89c30f231f6e22/ofl/geistpixel/GeistPixel%5BELSH%5D.ttf",
+    "sha256": "dcde0e2ae59aad779e71ee3fa45ade3a7146c2498024fdbb79c8cb619e60a238",
+    "bytes": 3657104
+  },
+  {
+    "file": "GeistPixelVariable-OFL.txt",
+    "url": "https://raw.githubusercontent.com/google/fonts/c180a5f9711fb8ec0070fab5ad89c30f231f6e22/ofl/geistpixel/OFL.txt",
+    "sha256": "021caa749f89fecd7c2e40a50499de29e84d2bc19251659b47d499c2fbfffc17",
+    "bytes": 4384
+  }
+]

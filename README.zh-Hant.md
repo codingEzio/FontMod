@@ -1,0 +1,5 @@
+# FontMod — 僅工具原始碼
+
+本候選包含工具及授權聲明，不含來源字型或圖像。請依 [TOOL-INPUTS.md](TOOL-INPUTS.md) 的路徑與雜湊自備有權使用的輸入。
+
+執行 `./fontmod source-check`、`./fontmod setup`，再執行 `./fontmod build --departure-build /path/to/build`。setup 需要網路；輸入缺少或雜湊不符時建置失敗。完整混合字型保留 Nerd 字形；第三方圖案及商標權仍待確認。本工具發布不授權發布產出的字型。見 [授權範圍](LICENSE-SCOPE.md)與[交付說明](RELEASE.zh-Hant.md)。

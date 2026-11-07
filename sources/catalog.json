@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "sources": {
+    "doto": {
+      "path": "sources/Doto-Variable.ttf",
+      "sha256": "6f4fe7d37853b91df3698daa84cde2dbe1c9695d88c986e6510134910337d426",
+      "repository": "https://github.com/google/fonts",
+      "revision": "9710da1eacb3be272583c3224dcb70f9da6eadbb",
+      "url": "https://raw.githubusercontent.com/google/fonts/9710da1eacb3be272583c3224dcb70f9da6eadbb/ofl/doto/Doto%5BROND%2Cwght%5D.ttf",
+      "label": "Doto",
+      "copyright": "Copyright 2024-2024 The Doto Project Authors (https://github.com/oliverlalan/Doto)",
+      "license": {
+        "spdx": "OFL-1.1",
+        "path": "sources/OFL.txt",
+        "sha256": "26a7b58bdba6cda8a78ca6e8b3791d8013b8abc6d5e6519f84193893aee02020",
+        "url": "https://raw.githubusercontent.com/google/fonts/9710da1eacb3be272583c3224dcb70f9da6eadbb/ofl/doto/OFL.txt",
+        "reservedNames": [],
+        "review": {
+          "modifiedFonts": true,
+          "embedding": true,
+          "redistribution": true,
+          "derivedLicense": "OFL-1.1",
+          "reviewedAt": "2026-10-12",
+          "evidence": "Pinned original OFL text; Cubic naming conditions also documented by upstream README https://github.com/ACh-K/Cubic-11"
+        }
+      }
+    },
+    "cubic11": {
+      "path": "sources/Cubic_11.ttf",
+      "sha256": "0193f5f033612496df6b45ee92ac3b335bc6a5a24ff95da55ca87b33e57dcf62",
+      "repository": "https://github.com/ACh-K/Cubic-11",
+      "revision": "4c566f7d6cc5c05ee360fe9cff56b5da1fcafd4d",
+      "url": "https://raw.githubusercontent.com/ACh-K/Cubic-11/4c566f7d6cc5c05ee360fe9cff56b5da1fcafd4d/fonts/ttf/Cubic_11.ttf",
+      "label": "Cubic 11",
+      "copyright": "[Cubic 11]\nCopyright (c) 2022-2025 ACh\nCopyright (c) 2022 Cubic 11 Project Authors\r\nThese fonts are free software.\r\nUnlimited permission is granted to use, copy, and distribute them, with or without modification, either commercially or noncommercially.\r\nTHESE FONTS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY.\r\n\r\n\r\n\r\n[JF Dot M+H 12]\r\nCopyright(c) 2005 M+ FONTS PROJECT\r\n[M+ BITMAP FONTS]\r\nCopyright (C) 2002-2004 COZ\r\nThese fonts are free software.\r\nUnlimited permission is granted to use, copy, and distribute it, with or without modification, either commercially and noncommercially.\r\nTHESE FONTS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY.\r\n\r\n",
+      "license": {
+        "spdx": "OFL-1.1",
+        "path": "sources/Cubic11-OFL.txt",
+        "sha256": "2b6e5938e5cffa0b9e183bd05f8c363e174e7ebed1a0556e2855fd1707fa2188",
+        "url": "https://raw.githubusercontent.com/ACh-K/Cubic-11/4c566f7d6cc5c05ee360fe9cff56b5da1fcafd4d/OFL.txt",
+        "reservedNames": [
+          "Cubic",
+          "俐方體"
+        ],
+        "review": {
+          "modifiedFonts": true,
+          "embedding": true,
+          "redistribution": true,
+          "derivedLicense": "OFL-1.1",
+          "reviewedAt": "2026-10-12",
+          "evidence": "Pinned original OFL text; Cubic naming conditions also documented by upstream README https://github.com/ACh-K/Cubic-11"
+        }
+      }
+    }
+  }
+}

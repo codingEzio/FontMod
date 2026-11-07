@@ -1,0 +1,324 @@
+{
+  "schemaVersion": 1,
+  "acquisition": "Bundled selected source snapshots adapted for privacy; original Git history excluded. Changed files retain original and adapted SHA-256 values.",
+  "sources": [
+    {
+      "name": "font-preset",
+      "license": "OFL and component terms; keep OFL.txt, NOTICE.md and licenses/",
+      "files": [
+        {
+          "path": "NOTICE.md",
+          "sha256": "42f42f4efa2a157399c551b2d022a1102ea78ce1734b9ee35b2cf6e427256fb3",
+          "mode": 420,
+          "originalSha256": "7e9b8b4f5eb275566b8325ce1d652d37819b41e52be5db6c7255c929b4a10fb0",
+          "adaptation": "Privacy and source-snapshot portability; see release guide."
+        },
+        {
+          "path": "OFL.txt",
+          "sha256": "b65e42750f3cb65437a97f4dfd781c58f199259949db2341012be60e32500e83",
+          "mode": 420
+        },
+        {
+          "path": "builder-version",
+          "sha256": "c9cab1d17423c7287bd35217972f6bfedd74081e09ed783c2a515e87869f1866",
+          "mode": 420,
+          "originalSha256": "d54312412e29c6f58e715c3f6a830cdf1ff3664dc6d28d0d01a451b2a06254d7",
+          "adaptation": "Privacy and source-snapshot portability; see release guide."
+        },
+        {
+          "path": "licenses/Apache2.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "mode": 420
+        },
+        {
+          "path": "licenses/Codicons.txt",
+          "sha256": "d6239afa918961b465b07bf7411cbe34ff6685854f58553db7966f4881a0211f",
+          "mode": 420
+        },
+        {
+          "path": "licenses/Cubic11.txt",
+          "sha256": "2b6e5938e5cffa0b9e183bd05f8c363e174e7ebed1a0556e2855fd1707fa2188",
+          "mode": 420
+        },
+        {
+          "path": "licenses/Cubic11Naming.txt",
+          "sha256": "7d8de3293fbde3c0be92b41496d7129ca1cf2397856cf3bf8df83007c9978755",
+          "mode": 420
+        },
+        {
+          "path": "licenses/DepartureMono.txt",
+          "sha256": "b65e42750f3cb65437a97f4dfd781c58f199259949db2341012be60e32500e83",
+          "mode": 420
+        },
+        {
+          "path": "licenses/Devicons.txt",
+          "sha256": "121194741d4a915b9f5890fdd6dd95121f9b1f816517c792358d72d7c838d664",
+          "mode": 420
+        },
+        {
+          "path": "licenses/DeviconsLegacy.txt",
+          "sha256": "d0c1eccf6379e2d4a702d15c8ab1bca43320edc63126ebd51f3907b8e879ee29",
+          "mode": 420
+        },
+        {
+          "path": "licenses/FontAwesome.txt",
+          "sha256": "de784a808496d49f5f80dd9d1d6e9a51cff712cfbc339e7c25155631ae3cdb5d",
+          "mode": 420
+        },
+        {
+          "path": "licenses/FontAwesome7.txt",
+          "sha256": "20c6f40715a567c97b80f6944beb8bb325835cab47ea7dcab89ee3b8e077eced",
+          "mode": 420
+        },
+        {
+          "path": "licenses/FontAwesomeExtension.txt",
+          "sha256": "b47b15d771c4507a75ff65beca3a78168d6af4cca9b45177a1aa817139c64ba5",
+          "mode": 420
+        },
+        {
+          "path": "licenses/FontLogos.txt",
+          "sha256": "88d9b4eb60579c191ec391ca04c16130572d7eedc4a86daa58bf28c6e14c9bcd",
+          "mode": 420
+        },
+        {
+          "path": "licenses/HackExtraGlyphs.txt",
+          "sha256": "1f61bb7c790c59b4b0ecdf304628b94e42ae4c8020094a8c3da73381ab212623",
+          "mode": 420
+        },
+        {
+          "path": "licenses/MaterialDesign.txt",
+          "sha256": "3bae6305bcaa6d10219b999f65c342034c2d40b1c0e8567fa08605e73ccba829",
+          "mode": 420
+        },
+        {
+          "path": "licenses/NerdFonts.txt",
+          "sha256": "1f6ad4edae6479aaace3112ede5279a23284ae54b2a34db66357aef5f64df160",
+          "mode": 420
+        },
+        {
+          "path": "licenses/NerdFontsAudit.txt",
+          "sha256": "c2a3f634fa1e5001912f4f19a42fa86fdef5654691b70000f936089325aa404f",
+          "mode": 420
+        },
+        {
+          "path": "licenses/NerdSymbols.txt",
+          "sha256": "84a7a98c82140fb12c37fe42b93805baa16024cb3e5acc599b7ffe612c55d847",
+          "mode": 420
+        },
+        {
+          "path": "licenses/NerdSymbolsReadme.txt",
+          "sha256": "a4463554f951c8153d0bdfcb6e03b382baf99dcdd3f99790014427687abdc55b",
+          "mode": 420
+        },
+        {
+          "path": "licenses/Octicons.txt",
+          "sha256": "4f886642f9e8d99eeadd484acdac011c3fde8a338faf52f5ca1408c13b9a9b63",
+          "mode": 420
+        },
+        {
+          "path": "licenses/Pomicons.txt",
+          "sha256": "cb4797a9745683f287c28833db596e9d68ec43082d59359b3a49c504f0f610ce",
+          "mode": 420
+        },
+        {
+          "path": "licenses/PowerSymbolsIEC.txt",
+          "sha256": "11aef1cdf2d58d822e6857e2574870ccc59d4900052bf5c098e319d750e7ac3d",
+          "mode": 420
+        },
+        {
+          "path": "licenses/PowerlineExtra.txt",
+          "sha256": "544307a58e6826c24145b2af1c3578b53e2e21ae0e6c67ab4c6abd544304d26a",
+          "mode": 420
+        },
+        {
+          "path": "licenses/PowerlineSymbols.txt",
+          "sha256": "46d5355e4734468135d8e4a30d0916292cc4df2b3ec30aa68c866f82497933be",
+          "mode": 420
+        },
+        {
+          "path": "licenses/Seti.txt",
+          "sha256": "d4d2d888c6a0a220a7b0e2d6013cf37539b0e05ef937002b3b33bdb364575b88",
+          "mode": 420
+        },
+        {
+          "path": "licenses/WeatherIcons.txt",
+          "sha256": "69cdedc8a4f57a30d68e4f045af8b9cce0ec3b1a6e7eec1ad41737c894f26790",
+          "mode": 420
+        },
+        {
+          "path": "licenses/WeatherIconsCredit.txt",
+          "sha256": "1854ba6df3083a336c6e951ed0e2c61bbf862cf4930b7861592331ce8d041159",
+          "mode": 420
+        },
+        {
+          "path": "recipe.json",
+          "sha256": "ec3d623b1ccf5d2630b4b8332d2331329dab7918d86ca42295879f61b327eea7",
+          "mode": 420,
+          "originalSha256": "7c64e58738aa59c4387c916f684e45b0f49466aa0a26e3fa8d17b20997b2e55b",
+          "adaptation": "Privacy and source-snapshot portability; see release guide."
+        }
+      ],
+      "selection": "Minimum rebuild inputs and complete required notices; not the original full public-source allowlist.",
+      "excludedOriginalPaths": [
+        ".gitignore",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "INSTALL.md",
+        "MAINTENANCE.md",
+        "README.es.md",
+        "README.ja.md",
+        "README.ko.md",
+        "README.md",
+        "README.zh-Hans.md",
+        "assets/departurepixelzh-social-card.png",
+        "consumer-fixture/README.md",
+        "consumer-fixture/font-dependency.json",
+        "public-source.json",
+        "scripts/check_compatibility.py",
+        "scripts/check_native.swift",
+        "scripts/render_social_card.swift",
+        "specimens/index.html",
+        "specimens/native-specimen.png",
+        "specimens/outline-and-advance.svg",
+        "web/departurepixelzh.css"
+      ],
+      "upstreamFileCount": 50,
+      "attribution": "codingEzio; selected own-source snapshot with retained third-party notices"
+    },
+    {
+      "name": "font-builder",
+      "license": "MIT; keep LICENSE-MIT",
+      "files": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "17d3934a6f623551d4309397443157fb8f0fa61f48f0d81f1bf3c5e50f0ccc97",
+          "mode": 420
+        },
+        {
+          "path": "README.md",
+          "sha256": "0f894354987a435b6764c9b8e54d538444ecb86a88d6947f0b6bc39a665446d1",
+          "mode": 420,
+          "originalSha256": "24de53c86c5bd22e06002563b7bebca55801aed99e95ea8ba8543fa168ece8a7",
+          "adaptation": "Privacy and source-snapshot portability; see release guide."
+        },
+        {
+          "path": "pyproject.toml",
+          "sha256": "ce9002ff1fc73a45b7065c32c7d6bea0637eebf17c3c794d3c92e20cc2bd0365",
+          "mode": 420,
+          "originalSha256": "b8444793db868320f2c0cb1292c011de9ef60da470cdc746962dcbd337d3ec3e",
+          "adaptation": "Security update: pin Brotli 1.2.1 in this source snapshot; original pinned bytes retained by hash."
+        },
+        {
+          "path": "src/departure_pixel_zh_builder/__init__.py",
+          "sha256": "ec5760c29cf6816916a21a90926e8eca050f0635ce1481183b218a5389b58d71",
+          "mode": 420
+        },
+        {
+          "path": "src/departure_pixel_zh_builder/audit.py",
+          "sha256": "53a18fd534034899ecf931e0a673b6e809824692375fd26b6743f572a3578278",
+          "mode": 420,
+          "originalSha256": "ceb9bab7ad41049e77e280607e34b729d7e1c78c4143ec124d7a4e75cecfbf7a",
+          "adaptation": "Removed owner-specific workspace denylist; generic path and credential audit remains."
+        },
+        {
+          "path": "src/departure_pixel_zh_builder/build.py",
+          "sha256": "d1a3805be7f3b2d2a58c6153ab33a82c5010a498e8dcacd393273664e8bb5ce0",
+          "mode": 420,
+          "originalSha256": "b0a8174cb476a0fcbdb94966afa19c55156f1094ecc0b5870769071d736bdc4e",
+          "adaptation": "Privacy and source-snapshot portability; see release guide."
+        },
+        {
+          "path": "src/departure_pixel_zh_builder/check.py",
+          "sha256": "4b76f314450bf075ace0f62f2170cda34068817c662556125c326133b3da9c80",
+          "mode": 420
+        },
+        {
+          "path": "src/departure_pixel_zh_builder/cli.py",
+          "sha256": "04bd95a1e6c75f3a914f23c1fbb09d5b7b99e09925392f2cc883f734c5d3f52d",
+          "mode": 420,
+          "originalSha256": "56aa5d868949476d88999e302ad0a81ecf62aae99672831134bd85281c4dd83d",
+          "adaptation": "Privacy and source-snapshot portability; see release guide."
+        },
+        {
+          "path": "src/departure_pixel_zh_builder/font_merge.py",
+          "sha256": "279655f828f9c9f2537ed698773b858620392ac128313bbc6ecbba47e9ec49b4",
+          "mode": 420
+        },
+        {
+          "path": "src/departure_pixel_zh_builder/install.py",
+          "sha256": "1731bdb43e293697877a0275be32a6880765e08f51e7d8cbecbb9ce0c007cd70",
+          "mode": 420
+        },
+        {
+          "path": "src/departure_pixel_zh_builder/package.py",
+          "sha256": "4847b39f84e87e94b72f4103284a3d45dcc050661cf5a785e5e7d598a674ccad",
+          "mode": 420
+        },
+        {
+          "path": "src/departure_pixel_zh_builder/source.py",
+          "sha256": "fd959cb2285a4b8b7771feba698e7c0f54e683004106783b6ba7a483857911e0",
+          "mode": 420
+        },
+        {
+          "path": "src/departure_pixel_zh_builder/sync.py",
+          "sha256": "354084d72478526c4fa6082321ce9526d68bc3d55774e125d20ece45c33caca8",
+          "mode": 420
+        },
+        {
+          "path": "uv.lock",
+          "sha256": "37a371ccc507c0bf46cbe24017e687d16993e3b5deea70fc8306f8dda9769c8b",
+          "mode": 420,
+          "originalSha256": "b59b6172294bc5d022cd4174c3442c1c184931d6d4cd85a9849cfa945c370755",
+          "adaptation": "Security update: pin Brotli 1.2.1 in this source snapshot; original pinned bytes retained by hash."
+        }
+      ],
+      "selection": "Minimum rebuild inputs and complete required notices; not the original full public-source allowlist.",
+      "excludedOriginalPaths": [
+        ".gitignore",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "README.es.md",
+        "README.ja.md",
+        "README.ko.md",
+        "README.zh-Hans.md",
+        "assets/departurepixelzh-social-card.png",
+        "docs/how-it-works.md",
+        "docs/maintenance.md",
+        "public-source.json",
+        "scripts/maintain.py",
+        "tests/__init__.py",
+        "tests/fixtures/base_recipe.json",
+        "tests/test_audit.py",
+        "tests/test_install.py",
+        "tests/test_package.py",
+        "tests/test_pipeline.py",
+        "tests/test_source.py",
+        "tests/test_sync.py"
+      ],
+      "upstreamFileCount": 34,
+      "attribution": "codingEzio; selected own-source snapshot with retained third-party notices"
+    }
+  ],
+  "departureFontHashes": {
+    "DeparturePixelZh-Regular.ttf": "85875131c24df8394162f2551b8d01f13a45ad118bea998ad321413bc7722c98",
+    "DeparturePixelZh-Regular.woff2": "aa5f340d6dd5c0565305e61a6af529cda13a19e64c6dc596a12d93720ab69bc4",
+    "DeparturePixelZhCompact-Regular.ttf": "3e75e623b1ba2c8d7eb52f2ac3ee71c3fbb5c4e0f1426bd34b3c1e071738288b",
+    "DeparturePixelZhCompact-Regular.woff2": "d5eeaff49ffc69fc14b4ee8a5f79a6e80febff358e5367c2f41b51970f5dcf19"
+  },
+  "derivedRecipe": {
+    "path": "dependencies/font-preset/recipe.fontmod.json",
+    "upstreamPath": "dependencies/font-preset/recipe.json",
+    "upstreamSha256": "ec3d623b1ccf5d2630b4b8332d2331329dab7918d86ca42295879f61b327eea7",
+    "sha256": "13dd4db5a90d41a434671d479dab5bb34570cf943c878d1eb1b0f0531ca55093",
+    "changes": {
+      "documents": [
+        "NOTICE.md",
+        "OFL.txt"
+      ]
+    },
+    "purpose": "Rebuild from the privacy-adapted snapshot without unrelated artwork/documentation; only documents differ from the included preset.",
+    "producerReleaseAttestation": false,
+    "originalUpstreamSha256": "7c64e58738aa59c4387c916f684e45b0f49466aa0a26e3fa8d17b20997b2e55b",
+    "originalDerivedSha256": "56226d380716dc80c1fc0c9f2638e567bf48115d308b8048d9ba6ee2c13ced51"
+  }
+}

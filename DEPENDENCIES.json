@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "packages": [
+    {
+      "name": "fonttools",
+      "version": "4.60.1",
+      "license": "MIT",
+      "purpose": "TrueType instancing, merging, verification and WOFF2 serialization",
+      "acquisition": "uv pip install -r requirements.txt",
+      "bundled": false,
+      "network": "Only environment setup; subsequent builds require locally supplied pinned source fonts; see TOOL-INPUTS.md"
+    },
+    {
+      "name": "brotli",
+      "version": "1.2.1",
+      "license": "MIT",
+      "purpose": "WOFF2 compression",
+      "acquisition": "uv pip install -r requirements.txt",
+      "bundled": false,
+      "network": "Only environment setup; subsequent builds require locally supplied pinned source fonts; see TOOL-INPUTS.md"
+    },
+    {
+      "name": "zopfli",
+      "version": "0.4.3",
+      "license": "Apache-2.0",
+      "purpose": "FontTools WOFF compression extra",
+      "acquisition": "uv pip install -r requirements.txt",
+      "bundled": false,
+      "network": "Only environment setup; subsequent builds require locally supplied pinned source fonts; see TOOL-INPUTS.md"
+    },
+    {
+      "name": "pillow",
+      "version": "12.0.0",
+      "license": "HPND",
+      "purpose": "Bounded alpha-preserving Emoji3D PNG resampling and per-glyph palette compression",
+      "acquisition": "uv pip install -r requirements.txt",
+      "bundled": false,
+      "network": "Environment setup only; production uses pinned local inputs offline"
+    }
+  ],
+  "runtime": {
+    "python": ">=3.10",
+    "swift": "Apple toolchain, macOS only for native install and preview",
+    "uv": "Environment setup only"
+  },
+  "fontLicensePolicy": "OFL-1.1 font software with retained component grants. Nerd icons retain MIT, CC-BY-4.0, Apache-2.0, OFL-1.1, Unlicense and Bitstream Vera notices. Reserved names and modifications are reviewed in THIRD-PARTY-NOTICES.md / RELEASE-RIGHTS.json; inclusion does not grant brand endorsement rights.",
+  "fontSourceAuthority": [
+    "sources/catalog.json",
+    "sources/emoji3d.json",
+    "sources/geist-mixed/sources.json"
+  ],
+  "fontRecipe": "final_fonts.json",
+  "toolingLicense": "MIT; original FontMod code, scripts, recipes, templates and documentation only; see LICENSE and LICENSE-SCOPE.md. Source and generated fonts retain their component terms.",
+  "departureInput": {
+    "option": "--departure-build",
+    "default": "departure-build (relative to the FontMod source root)",
+    "scope": "build/platform adapters only",
+    "requirements": "Verified producer provenance.json, both TTF variants, OFL.txt, NOTICE.md and complete Licenses directory",
+    "network": "No implicit download; prepare this dependency separately."
+  },
+  "consumerDelivery": {
+    "native": "./fontmod install / installed (explicit macOS operation)",
+    "webExtension": "./fontmod bundle",
+    "preview": "./fontmod catalog --no-open",
+    "network": "No network for existing local inputs."
+  },
+  "releaseSourceClosure": {
+    "manifest": "release-dependencies.json",
+    "acquisition": "release-export copies the allowlisted, privacy-adapted source snapshots; source ZIP includes dependencies/",
+    "sourceRebuild": "43 selected source files plus one derived recipe; original/output hashes recorded for changed dependency files; explicit --development; compare four font hashes; no producer Git-release attestation",
+    "network": "uv dependencies and pinned upstream Departure font inputs; original Git commits are not required or assumed public",
+    "licenses": "Departure OFL/component notices and builder MIT are preserved in each source snapshot"
+  }
+}

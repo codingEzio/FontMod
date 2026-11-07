@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doto Mod font specimen</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  :root { color-scheme: light dark; }
+  body { margin: 24px; font-family: system-ui, sans-serif; }
+  section { margin: 24px 0 40px; }
+  h1 { font-size: 22px; } h2 { font-size: 18px; }
+  p { margin: 10px 0; overflow-wrap: anywhere; }
+  .sample { font-weight: 400; font-synthesis: none; line-height: 1.5; }
+  .extra { font-family: DotoModExtraBold, system-ui, sans-serif; }
+  .black { font-family: DotoModBlack, system-ui, sans-serif; }
+  .small { font-size: 18px; } .medium { font-size: 32px; } .large { font-size: 64px; }
+</style>
+<h1>Doto Mod</h1>
+<p>Independent Regular families with baked heavy outlines. Zh includes Cubic 11; the original two faces use system Chinese fallback.</p>
+<section>
+  <h2>DotoModExtraBold · source weight 800</h2>
+  <p id="extra" class="sample extra small">Doto ABC abc 0123456789 !? —</p>
+  <p class="sample extra medium">Doto Mod ExtraBold 800</p>
+  <p class="sample extra large">DOTO 012345</p>
+  <p id="extra-mixed" class="sample extra small">Doto 800 中文</p>
+</section>
+<section>
+  <h2>DotoModBlack · source weight 900</h2>
+  <p id="black" class="sample black small">Doto ABC abc 0123456789 !? —</p>
+  <p class="sample black medium">Doto Mod Black 900</p>
+  <p class="sample black large">DOTO 012345</p>
+  <p id="black-mixed" class="sample black small">Doto 900 中文</p>
+</section>
+<section>
+  <h2>DotoModExtraBoldZh · Doto 800 + Cubic 11</h2>
+  <p id="extra-zh" class="sample small" style="font-family:DotoModExtraBoldZh,system-ui">Doto ABC abc 0123456789 中文测试 繁體標點，。！？</p>
+  <p class="sample medium" style="font-family:DotoModExtraBoldZh,system-ui">Doto 800 中文简繁</p>
+  <p class="sample large" style="font-family:DotoModExtraBoldZh,system-ui">DOTO 中文</p>
+</section>
+<section>
+  <h2>DotoModBlackZh · Doto 900 + Cubic 11</h2>
+  <p id="black-zh" class="sample small" style="font-family:DotoModBlackZh,system-ui">Doto ABC abc 0123456789 中文测试 繁體標點，。！？</p>
+  <p class="sample medium" style="font-family:DotoModBlackZh,system-ui">Doto 900 中文简繁</p>
+  <p class="sample large" style="font-family:DotoModBlackZh,system-ui">DOTO 中文</p>
+</section>
+</html>

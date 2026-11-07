@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+cd "$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+case "${1:-}" in
+  source-check|source-export|release-check|dependency-check) exec python3 -B scripts/maintenance.py "$@" ;;
+  setup)
+    uv --cache-dir .cache/uv venv .venv
+    uv --cache-dir .cache/uv pip install --python .venv/bin/python -r requirements.txt
+    ;;
+  build) python3 -B scripts/check_tool_inputs.py; exec .venv/bin/python scripts/final_cli.py "$@" ;;
+  *) exec .venv/bin/python scripts/final_cli.py "$@" ;;
+esac
