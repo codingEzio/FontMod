@@ -5,7 +5,7 @@ No consumer or installed-font mutation. The manifest owns names, geometry and
 size policy; complete Noto cmap/GSUB is retained with smaller PNGs. Code keeps
 source gvar deltas; appended glyphs have no variation. All sources are local.
 """
-import argparse, copy, hashlib, io, json, struct, tempfile, zlib
+import argparse, copy, hashlib, io, json, os, struct, tempfile, zlib
 from pathlib import Path
 from fontTools import subset
 from fontTools.ttLib import TTFont, newTable
@@ -21,30 +21,33 @@ from font_mixed_support import with_emoji
 from font_mixed_support import rename
 
 ROOT=Path(__file__).resolve().parents[1]
+INPUT_ROOT=Path(os.environ.get('FONTMOD_INPUT_ROOT', str(ROOT))).expanduser().resolve()
+def input_path(name):
+    return INPUT_ROOT / name
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def write(p,v):p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n')
 def checked(p,h):
     if sha(p)!=h:raise ValueError('Source digest mismatch: '+str(p))
     return p
 
-def png_resize(raw, factor):
+def png_resize(raw, factor, colors=256):
     """Keep alpha and 3D appearance; bounded 256-color palette per small glyph."""
     from PIL import Image
     image=Image.open(io.BytesIO(raw)).convert("RGBA")
     image=image.resize((max(1,round(image.width*factor)),max(1,round(image.height*factor))),Image.Resampling.LANCZOS)
-    image=image.quantize(colors=256,method=Image.Quantize.FASTOCTREE,dither=Image.Dither.NONE)
+    image=image.quantize(colors=colors,method=Image.Quantize.FASTOCTREE,dither=Image.Dither.NONE)
     buffer=io.BytesIO();image.save(buffer,format="PNG",optimize=True,compress_level=9)
     return buffer.getvalue()
 
 def emoji_file(config,output):
-    m=json.loads((ROOT/'sources/emoji3d.json').read_text());source=checked(ROOT/m['path'],m['sha256']);dest=output/'Emoji3D-Production.ttf'
+    m=json.loads((ROOT/'sources/emoji3d.json').read_text());source=checked(input_path(m['path']),m['sha256']);dest=output/'Emoji3D-Production.ttf'
     cache=output/'emoji-preparation.json'
     if dest.exists()and cache.exists():
         r=json.loads(cache.read_text())
         if r['config']==config and r['sourceSha256']==sha(source)and r['sha256']==sha(dest):return dest,r
     font=TTFont(source,recalcTimestamp=False);strike=font['sbix'].strikes[config['sourcePpem']];ratio=config['targetPpem']/config['sourcePpem'];images=0
     for glyph in strike.glyphs.values():
-        if glyph.graphicType=='png ':glyph.imageData=png_resize(glyph.imageData,ratio);images+=1
+        if glyph.graphicType=='png ':glyph.imageData=png_resize(glyph.imageData,ratio,config.get('paletteColors',256));images+=1
         glyph.originOffsetX=round(glyph.originOffsetX*ratio);glyph.originOffsetY=round(glyph.originOffsetY*ratio)
     strike.ppem=config['targetPpem'];font['sbix'].strikes={strike.ppem:strike};font.save(dest)
     reread=TTFont(dest);original=TTFont(source)
@@ -141,15 +144,15 @@ def height_axis(font, source_order, spec):
 def build(config,output):
     output.mkdir(parents=True,exist_ok=True);emoji,emoji_report=emoji_file(config['emoji'],output)
     catalog=json.loads((ROOT/'sources/catalog.json').read_text())['sources'];records=json.loads((ROOT/'sources/geist-mixed/sources.json').read_text())
-    for r in records:checked(ROOT/'sources/geist-mixed'/r['file'],r['sha256'])
-    paths={'pixel':checked(ROOT/'sources/geist-mixed/GeistPixel-Variable.ttf',config['pixelSourceSha256']),'mono':ROOT/'sources/geist-mixed/GeistMono-Variable.ttf','doto':checked(ROOT/catalog['doto']['path'],catalog['doto']['sha256'])};cubic=checked(ROOT/catalog['cubic11']['path'],catalog['cubic11']['sha256']);nerd=ROOT/'sources/geist-mixed/SymbolsNerdFontMono-Regular.ttf'
+    for r in records:checked((input_path('sources/geist-mixed/'+r['file']) if r['file'].endswith(('.ttf','.woff2')) else ROOT/'sources/geist-mixed'/r['file']),r['sha256'])
+    paths={'pixel':checked(input_path('sources/geist-mixed/GeistPixel-Variable.ttf'),config['pixelSourceSha256']),'mono':input_path('sources/geist-mixed/GeistMono-Variable.ttf'),'doto':checked(input_path(catalog['doto']['path']),catalog['doto']['sha256'])};cubic=checked(input_path(catalog['cubic11']['path']),catalog['cubic11']['sha256']);nerd=input_path('sources/geist-mixed/SymbolsNerdFontMono-Regular.ttf')
     license_dir=output/'licenses';license_dir.mkdir(exist_ok=True)
     for rel in ['sources/OFL.txt','sources/Cubic11-OFL.txt','sources/Noto3D-OFL.txt','sources/geist-mixed/Geist-OFL.txt','sources/geist-mixed/GeistPixelVariable-OFL.txt']:
         p=ROOT/rel;(license_dir/p.name).write_bytes(p.read_bytes())
     # All original component notices for the complete Nerd donor.
     for p in (ROOT/'sources/coverage/NerdFonts/licenses').glob('*'):
         if p.is_file():(license_dir/p.name).write_bytes(p.read_bytes())
-    report={'version':config['version'],'recipe':config,'emoji':emoji_report,'inputs':{k:{'file':str(v.relative_to(ROOT)),'sha256':sha(v)}for k,v in {**paths,'cubic11':cubic,'nerd':nerd}.items()},'sources':{'text':[r for r in records if r['file'] in {'GeistPixel-Variable.ttf','GeistPixelVariable-OFL.txt','GeistMono-Variable.ttf','Geist-OFL.txt','SymbolsNerdFontMono-Regular.ttf'}],**catalog,'emoji':json.loads((ROOT/'sources/emoji3d.json').read_text())},'assets':[]}
+    report={'version':config['version'],'recipe':config,'emoji':emoji_report,'inputs':{k:{'file':str(v.relative_to(INPUT_ROOT)),'sha256':sha(v)}for k,v in {**paths,'cubic11':cubic,'nerd':nerd}.items()},'sources':{'text':[r for r in records if r['file'] in {'GeistPixel-Variable.ttf','GeistPixelVariable-OFL.txt','GeistMono-Variable.ttf','Geist-OFL.txt','SymbolsNerdFontMono-Regular.ttf'}],**catalog,'emoji':json.loads((ROOT/'sources/emoji3d.json').read_text())},'assets':[]}
     prior=json.loads((output/'provenance.json').read_text())if(output/'provenance.json').exists()else{}
     for spec in config['fonts']:
         name=spec['family']

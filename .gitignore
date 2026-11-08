@@ -1,5 +1,5 @@
-.venv/
-.cache/
+.venv
+.cache
 __pycache__/
 .DS_Store
 Outputs/.releases/*/delete_after_use_*/
@@ -10,7 +10,7 @@ Benchmarks/delete_after_use_*.json
 Deliveries/CustomBundles/
 
 # Reproducible final fonts and private runtime verification.
-Final/
+Final
 Evidence/final-*
 Evidence/emoji-palette-trial-*
 Evidence/previews/*20261017*
@@ -18,3 +18,10 @@ Evidence/previews/*20261017*
 # Private operation records and local source candidates.
 Local/
 Evidence/
+
+# Separately supplied font binaries and private profiles never enter source Git.
+sources/**/*.ttf
+sources/**/*.woff2
+sources/*.ttf
+sources/*.woff2
+sources/rysana-mono/

@@ -39,13 +39,62 @@ def native_manifest():
     p=ROOT/'Final/native-manifest.json';final_fonts.write(p,result);return p
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('command',choices=['build','check','catalog','bundle','rename-candidate','release-export','install','installed']);p.add_argument('--departure-build',type=Path);p.add_argument('--no-open',action='store_true');p.add_argument('--no-serve',action='store_true');p.add_argument('--include-archived',action='store_true',help='Compatibility flag: retired fonts are no longer in this catalog');p.add_argument('--preview-port',type=int,default=56134);p.add_argument('--font');p.add_argument('--variants');p.add_argument('--target',choices=['web','extension','both'],default='both');p.add_argument('--match',action='append',default=[]);p.add_argument('--output',type=Path);p.add_argument('--zip',action='store_true');p.add_argument('--list-fonts',action='store_true');p.add_argument('--source-revision');p.add_argument('--from-final',type=Path);p.add_argument('--departure-source',type=Path,default=ROOT/'dependencies/font-preset');p.add_argument('--departure-builder-source',type=Path,default=ROOT/'dependencies/font-builder');a=p.parse_args()
+    # The experimental local profile is intentionally absent from the separate
+    # public source export; the existing final catalog remains independent.
+    local_profile=True
+    commands=['build','check','catalog','bundle','rename-candidate','release-export','install','installed']+(['verify-native','compact','derive-trials'] if local_profile else [])
+    p=argparse.ArgumentParser()
+    p.add_argument('command',choices=commands)
+    p.add_argument('--profile',choices=['final','rysamix'] if local_profile else ['final'],default='final')
+    if local_profile:
+        p.add_argument('--deep',action='store_true')
+        p.add_argument('--misans-source',type=Path)
+        p.add_argument('--replace-from',type=Path)
+        p.add_argument('--source-build',type=Path)
+        p.add_argument('--emoji-cache',type=Path)
+    else:
+        p.set_defaults(deep=False,misans_source=None,replace_from=None,source_build=None,emoji_cache=None)
+    p.add_argument('--departure-build',type=Path);p.add_argument('--no-open',action='store_true');p.add_argument('--no-serve',action='store_true');p.add_argument('--include-archived',action='store_true',help='Compatibility flag: retired fonts are no longer in this catalog');p.add_argument('--preview-port',type=int,default=56134);p.add_argument('--font');p.add_argument('--variants');p.add_argument('--target',choices=['web','extension','both'],default='both');p.add_argument('--match',action='append',default=[]);p.add_argument('--output',type=Path);p.add_argument('--zip',action='store_true');p.add_argument('--list-fonts',action='store_true');p.add_argument('--source-revision');p.add_argument('--from-final',type=Path);p.add_argument('--departure-source',type=Path,default=ROOT/'dependencies/font-preset');p.add_argument('--departure-builder-source',type=Path,default=ROOT/'dependencies/font-builder');a=p.parse_args()
+    if a.profile=='rysamix':
+        if final_fonts.INPUT_ROOT.is_relative_to(ROOT):p.error('RysaMix requires FONTMOD_INPUT_ROOT outside the source checkout')
+        if a.command not in ['build','compact','derive-trials','bundle','check','verify-native','install','installed']:p.error('This local profile supports build, compact, derive-trials, bundle, check, verify-native, install and installed')
+        if a.output is None:p.error('RysaMix requires an explicit --output directory')
+        if a.output.expanduser().resolve().is_relative_to(ROOT):p.error('RysaMix output must be outside the source checkout')
+        if a.misans_source is not None and a.command!='build':p.error('--misans-source belongs to RysaMix build')
+        if a.replace_from is not None and a.command!='install':p.error('--replace-from belongs to RysaMix install')
+        if a.departure_build is not None:p.error('--departure-build is not used by RysaMix')
+        if a.deep and a.command!='check':p.error('--deep belongs to RysaMix check')
+        if a.command=='compact' and (a.source_build is None or a.emoji_cache is None):p.error('RysaMix compact requires --source-build and --emoji-cache')
+        if a.command=='derive-trials' and a.source_build is None:p.error('RysaMix derive-trials requires --source-build')
+        if a.command=='bundle' and a.source_build is None:p.error('RysaMix bundle requires --source-build')
+        if a.command not in ['compact','derive-trials','bundle'] and a.source_build is not None:p.error('--source-build belongs to RysaMix compact, derive-trials or bundle')
+        if a.command!='compact' and a.emoji_cache is not None:p.error('--emoji-cache belongs to RysaMix compact')
+        import rysa_mono
+        if a.command=='derive-trials':rysa_mono.derive_trials(a.source_build,a.output);return
+        if a.command=='compact':rysa_mono.compact(a.source_build,a.emoji_cache,a.output);return
+        if a.command=='bundle':
+            if a.target!='web':p.error('RysaMix currently exports --target web only')
+            if a.match or a.font or a.variants or a.list_fonts:p.error('RysaMix web bundle includes both families and styles')
+            import rysa_web_bundle
+            rysa_web_bundle.export(a.source_build,a.output,archive=a.zip);return
+        if a.command=='build':rysa_mono.build(a.output,a.misans_source);return
+        report=rysa_mono.check(a.output)
+        if a.deep:rysa_mono.deep_check(a.output,report)
+        if a.command!='check':rysa_mono.native('bundled' if a.command=='verify-native' else a.command,a.output,report,a.replace_from)
+        return
+    if a.deep:p.error('--deep belongs to the RysaMix profile')
+    if a.misans_source is not None:p.error('--misans-source belongs to the RysaMix profile')
+    if a.replace_from is not None:p.error('--replace-from belongs to the RysaMix profile')
+    if a.source_build is not None or a.emoji_cache is not None:p.error('--source-build and --emoji-cache belong to the RysaMix profile')
+    if a.command=='verify-native':p.error('verify-native requires --profile rysamix')
+    if a.command in ['compact','derive-trials']:p.error('This command requires --profile rysamix')
     if a.command=='rename-candidate':
         if a.from_final is None or a.output is None:p.error('rename-candidate requires --from-final and a new --output directory')
         import release
         print(json.dumps(release.rename_candidate(ROOT,a.from_final,a.output)));return
     if a.departure_build is not None and a.command != 'build':p.error('--departure-build belongs to build')
     if a.command=='build':
+        if (ROOT/'Final').resolve().is_relative_to(ROOT):p.error('Final must point to a directory outside the source checkout')
         from departure_input import resolve
         resolve(a.departure_build)
         final_fonts.build(json.loads((ROOT/'final_fonts.json').read_text()),ROOT/'Final')
@@ -74,6 +123,7 @@ def main():
     entry=next((e for e in catalog if e['family']==a.font),None)
     if not entry:raise ValueError('Unknown final font: '+a.font)
     styles=font_bundle.select_styles(entry,a.variants.split(',')if a.variants else [])
-    dest=a.output or ROOT/'Deliveries/CustomBundles'/a.font
+    dest=a.output or ROOT/'Final/Bundles'/a.font
+    if dest.expanduser().resolve().is_relative_to(ROOT):p.error('Bundle output must be outside the source checkout')
     print(json.dumps(font_bundle.export(ROOT,entry,styles,dest,target=a.target,matches=a.match,archive=a.zip)))
 if __name__=='__main__':main()

@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path, PurePosixPath
 import re
 import shutil
@@ -80,7 +81,7 @@ def collect(index=False):
         elif PurePosixPath(name).suffix.lower() in {'.ttf', '.woff2'}:
             # Build inputs are intentionally absent from this tool-only export.
             # If supplied, validate them without adding them to the export.
-            candidate = ROOT / name
+            candidate = Path(os.environ.get('FONTMOD_INPUT_ROOT', str(ROOT))).expanduser() / name
             if not candidate.exists():
                 continue
             data = candidate.read_bytes()
