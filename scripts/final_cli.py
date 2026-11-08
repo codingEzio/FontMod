@@ -39,8 +39,8 @@ def native_manifest():
     p=ROOT/'Final/native-manifest.json';final_fonts.write(p,result);return p
 
 def main():
-    # The experimental local profile is intentionally absent from the separate
-    # public source export; the existing final catalog remains independent.
+    # The optional profile's tooling is public; its recipe and inputs stay local.
+    # The existing final catalog remains independent.
     local_profile=True
     commands=['build','check','catalog','bundle','rename-candidate','release-export','install','installed']+(['verify-native','compact','derive-trials'] if local_profile else [])
     p=argparse.ArgumentParser()
