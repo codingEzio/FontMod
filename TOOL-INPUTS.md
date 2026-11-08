@@ -11,7 +11,9 @@ This local candidate contains no font binaries or specimen artwork. It does not 
 
 ## External inputs and optional local profiles
 
-Set `FONTMOD_INPUT_ROOT` to an external directory containing the `sources/` layout listed above. Font binaries are read there; text manifests and licenses remain in this checkout. Omitting it retains the existing checkout-relative input paths. Input hashes remain mandatory.
+Set `FONTMOD_INPUT_ROOT` to an existing absolute input directory, or write that path as one UTF-8 line in ignored `Local/input-root` for automatic use. The environment variable takes precedence; if both are absent, inputs remain checkout-relative. An empty, multiline, relative or nonexistent configured path fails clearly. No configuration is executed. The input directory contains the `sources/` layout above; text manifests and licenses remain in this checkout. Input hashes remain mandatory.
+
+For existing consumers that read checkout paths directly, create individual ignored symlinks at `sources/Cubic_11.ttf`, `sources/Noto3D-64.ttf`, `sources/geist-mixed/GeistPixel-Square.woff2`, and `sources/geist-mixed/Pixel-OFL.txt` pointing to their separately supplied files. Link `Final` to the retained external final-font directory. Verify each target and hash before switching consumers; never overwrite an existing file or directory. Symlinks are local compatibility paths, not source-export contents.
 
 Before a final build, create an external output directory and link it as `Final` in the checkout, for example `mkdir -p /path/to/private-output && ln -s /path/to/private-output Final`. Builds reject a checkout-local `Final`; selected bundles default to its `Bundles/` subdirectory and also require external output.
 

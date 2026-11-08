@@ -25,3 +25,6 @@ sources/**/*.woff2
 sources/*.ttf
 sources/*.woff2
 sources/rysana-mono/
+
+# Optional retained compatibility license for direct downstream consumers.
+sources/geist-mixed/Pixel-OFL.txt

@@ -5,7 +5,7 @@ No consumer or installed-font mutation. The manifest owns names, geometry and
 size policy; complete Noto cmap/GSUB is retained with smaller PNGs. Code keeps
 source gvar deltas; appended glyphs have no variation. All sources are local.
 """
-import argparse, copy, hashlib, io, json, os, struct, tempfile, zlib
+import argparse, copy, hashlib, io, json, struct, tempfile, zlib
 from pathlib import Path
 from fontTools import subset
 from fontTools.ttLib import TTFont, newTable
@@ -19,9 +19,10 @@ import font_mixed_support as core
 from font_mixed_support import _merge_missing
 from font_mixed_support import with_emoji
 from font_mixed_support import rename
+from input_root import resolve_input_root
 
 ROOT=Path(__file__).resolve().parents[1]
-INPUT_ROOT=Path(os.environ.get('FONTMOD_INPUT_ROOT', str(ROOT))).expanduser().resolve()
+INPUT_ROOT=resolve_input_root(ROOT)
 def input_path(name):
     return INPUT_ROOT / name
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
