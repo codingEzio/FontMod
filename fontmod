@@ -7,6 +7,7 @@ case "${1:-}" in
     uv --cache-dir .cache/uv venv .venv
     uv --cache-dir .cache/uv pip install --python .venv/bin/python -r requirements.txt
     ;;
+  prepare-emoji) shift; exec .venv/bin/python -B scripts/prepare_emoji.py "$@" ;;
   glyphgrove) shift; exec .venv/bin/python scripts/glyphgrove/build.py "$@" ;;
   build)
     case " $* " in *" --profile rysamix "*|*" --profile=rysamix "*) ;; *) python3 -B scripts/check_tool_inputs.py ;; esac

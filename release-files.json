@@ -46,6 +46,7 @@
     "scripts/maintenance.py",
     "scripts/native.swift",
     "scripts/platform_fonts.py",
+    "scripts/prepare_emoji.py",
     "scripts/preview.html",
     "scripts/release.py",
     "scripts/rysa_mono.py",
