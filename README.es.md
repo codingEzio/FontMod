@@ -6,4 +6,6 @@ Este repositorio incluye herramientas y avisos, sin fuentes ni imágenes. Aporte
 
 Ejecute `./fontmod source-check`, `./fontmod setup` y `./fontmod build --departure-build /path/to/build`. setup necesita red; la compilación falla si falta una entrada o su hash no coincide. Se conservan los glifos Nerd. Los derechos de imágenes y marcas de terceros siguen sin verificar ; esta publicación de herramientas no autoriza publicar las fuentes generadas. [Licencia](LICENSE-SCOPE.md) · [Guía en inglés](RELEASE.en.md).
 
+Tras setup, prepare la entrada Emoji con `./fontmod prepare-emoji /path/to/Noto-3D-128.ttf /path/to/input-root/sources/Noto3D-64.ttf`. Verifica ambos hashes y no sobrescribe archivos existentes.
+
 Las herramientas opcionales RysaMix y Glyphgrove usan entradas externas; consulta [TOOL-INPUTS.md](TOOL-INPUTS.md). Las licencias de fuentes y derivados son independientes de la herramienta.
